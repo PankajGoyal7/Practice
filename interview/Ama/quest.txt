@@ -1,0 +1,106 @@
+You have a number of stairs ahead of you.
+And at a time... you can jump either 1 2 or 3 steps.
+
+3
+(1,1,1)
+(1,2)
+(2,1)
+(3)
+
+
+int countNumWays(int n){
+    if(n < 0){
+        return -1;
+    }
+    
+    if(n ==0){
+        return 1;
+    }
+    
+    int[] counts = new int[n+1];
+    Arrays.fill(counts,0);    
+    counts[0] = 1;
+    counts[1] = 1;
+    counts[2] = 2;
+    for(int i=3;i<=n;i++){
+        counts[i] = count[i-1]+count[i-2]+count[i-3];
+    }
+    
+    return counts[n];
+}
+
+counts[0] = 0;
+counts[1] = 1;
+counts[2] = 2;
+counts[3] = 4;
+
+
+
+Two traversals are given 
+Inorder: D B E A F C
+Preorder: A B D E C F
+
+                A
+              /   \
+             B     C
+            / \   /
+           D   E F
+           
+           
+class Node{
+    Char key;
+    Node left,right;
+    Node(Char key){
+        this.key = key;
+        left =right = null;
+    }
+}
+
+
+class Tree{
+        
+        
+    int preIndex = 0;
+    
+    Node buildTree(Char[] pre,Char[] in,int start,int end){
+        
+        if(start > end){
+            return null;
+        }
+        
+        Node node = new Node(pre[preIndex++]);
+        if(start == end){
+            return node;
+        }
+        
+        int index = search(in,start,end,node.key);
+        
+        node.left = buildTree(pre,in,start,index -1);
+        node.right = buildTree(pre,in,index+1,end);
+        
+        return node;
+    }
+    
+    search(Char[] in,int start,int end,Char key){
+        
+        int i;
+        for(i=start,i<= end;i++){
+            if(in[i] == key){
+                return i;
+            }
+        }
+        return i;
+    }
+
+}
+
+Inorder: D B E A F C
+Preorder: A B D E C F
+
+preindex    start end  index 
+0            0     5    3
+1            0     2    1
+2            0     0    1
+3            2     2    1
+4            4     5    3
+5            4     4    4                     

@@ -1,0 +1,17 @@
+
+*****************************************************BINARY TREE *******************************************************************
+
+1) Strict/Proper  Binay tree - if a node has either 2 or 0 children
+2) complete binary Tree - All levels except possibly last are completely filled and all nodes are as left as possible
+3) Perfect Binary Tree -  All levels are completely filled
+4)											  h+1
+	Max. no of nodes in a tree of height h = 2    - 1
+5) 											h+1
+	Height of Binary tree with n nodes n = 2    - 1
+										h+1
+									   2    = n+1
+									   h = log base2 (n+1) - 1
+6) Balanced Binary Tree -  difference between height of left subtree and height of right subtree for every nodeshould not be more 	
+							than k number (like 1)
+
+7) Traversal a) using recursion b) using stack c) using morris Traversal
